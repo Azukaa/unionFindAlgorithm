@@ -4,19 +4,16 @@ class WeightedQuickUnion:
         self.objects = [obj for obj in range(0, self.n)]
         self.size = [obj for obj in range(0, self.n)]
 
-
     def __iter__(self):
         return iter(self.objects)
 
     def root(self, i):
         while i != self.objects[i]:
             i = self.objects[self.objects[i]]
-
         return i
 
     def connected(self, p, q):
         return self.root(p) == self.root(q)
-
 
     def union(self, p, q):
         pid = self.root(p)
